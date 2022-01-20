@@ -1,6 +1,6 @@
 const io = require('socket.io')(3007, {
 	cors: {
-		origin: 'http://localhost:3000',
+		origin: '*',
 		method: ['GET', 'POST'],
 	},
 })
@@ -18,6 +18,7 @@ const removeUser = socketId => {
 const getUser = userId => {
 	return users.find(user => user.userId === userId)
 }
+
 
 io.on('connection', socket => {
 	console.log('a user connected ' + socket.id)
