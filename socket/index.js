@@ -4,7 +4,6 @@ const io = require('socket.io')(3007, {
 		method: ['GET', 'POST'],
 	},
 })
-
 let users = []
 
 const addUser = (userId, socketId) => {
