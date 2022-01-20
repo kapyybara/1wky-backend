@@ -1,0 +1,17 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	& > * {
+		border: 0.2rem solid $mainColorDark;
+		border-radius: 50%;
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		object-fit: cover;
+        box-shadow: 0 0.625rem 0.625rem rgb(0 0 0 / 25%);
+		transition: all 0.2s ease;
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}

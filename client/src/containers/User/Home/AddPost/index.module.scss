@@ -1,0 +1,81 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	width: 100%;
+	max-width: 31.25rem;
+	padding: 1rem 0.875rem;
+	margin-bottom: 1.75rem;
+	background-color: $secondColorDark;
+	z-index: 1;
+	border-radius: 0.675rem;
+	box-shadow: -0.5rem 0.5rem 0.5rem 0.2rem 1px rgba(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.groupIcon {
+	display: flex;
+	& > * + * {
+		margin-left: 1rem;
+	}
+}
+
+.dn {
+	display: none;
+}
+
+.preview {
+	border-radius: 0.3125rem;
+	max-height: 31.25rem;
+	max-width: 100%;
+	margin-top: 0.5rem;
+}
+
+.textarea {
+	outline: none;
+	border: 1px solid $secondColorDark;
+	margin-top: 1rem;
+	padding: 1rem 1.25rem;
+	border-radius: 0.625rem;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.875rem;
+	background: $mainColorDark;
+	color: $textColor;
+	transition: all 0.2s ease;
+	font-family: inherit;
+	width: fill;
+	resize: none;
+	&::-webkit-scrollbar {
+		width: 0.2rem;
+	}
+	&::-webkit-scrollbar-track {
+		background: $secondColorDark;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $textColor20;
+		border-radius: 100rem;
+	}
+}
+
+.buttonGroup {
+	display: flex;
+	margin-top: 0.5rem;
+	justify-content: flex-end;
+	width: fill;
+	.icon {
+		min-width: 7.5rem;
+		margin-left: 1rem;
+	}
+}
+
+.icon {
+	opacity: 1;
+	transition: all 0.2s ease;
+}
+
+.o0 {
+	opacity: 0;
+}

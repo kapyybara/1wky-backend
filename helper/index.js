@@ -1,0 +1,1 @@
+export {default as HashFunction} from './hashPassword.js'

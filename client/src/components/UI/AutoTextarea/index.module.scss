@@ -1,0 +1,28 @@
+@import 'assets/styles/variable.scss';
+
+.textarea {
+	outline: none;
+	border: 1px solid $secondColorDark;
+	margin-top: 1rem;
+	padding: 1rem 1.25rem;
+	border-radius: 0.625rem;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 0.875rem;
+	background: $mainColorDark;
+	color: $textColor;
+	transition: all 0.2s ease;
+	font-family: inherit;
+	width: fill;
+	resize: none;
+	&::-webkit-scrollbar {
+		width: 0.2rem;
+	}
+	&::-webkit-scrollbar-track {
+		background: $secondColorDark;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $textColor20;
+		border-radius: 100rem;
+	}
+}

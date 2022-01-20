@@ -1,0 +1,9 @@
+.navlist {
+	display: flex;
+	align-items: center;
+	font-weight: bold;
+	font-size: 1.125rem;
+	& > li + li {
+		margin-left: 2.875rem;
+	}
+}

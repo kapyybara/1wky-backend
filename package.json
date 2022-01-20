@@ -1,0 +1,42 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js",
+    "socket": "nodemon ./socket/index.js",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"yarn run server\" \"yarn run socket\"",
+    "build": "cd client && yarn install && yarn run build && cd ../socket && yarn install",
+    "heroku-postbuild": "cd client && yarn install && yarn run build && cd ../socket && yarn install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1wku/-wVy-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1wku/-wVy-backend/issues"
+  },
+  "homepage": "https://github.com/1wku/-wVy-backend#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.1",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "helmet": "^4.6.0",
+    "http": "^0.0.1-security",
+    "mongoose": "^6.1.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "socket.io": "^4.4.1"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}

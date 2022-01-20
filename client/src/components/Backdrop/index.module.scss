@@ -1,0 +1,23 @@
+.backdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	backdrop-filter: blur(2.5rem);
+	box-shadow: -0.5rem 0.5rem 0.5rem 0.2rem 1px rgba(0, 0, 0, 0.5);
+	display: list-item;
+	align-items: center;
+	justify-content: center;
+	object-fit: cover;
+	z-index: 99;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.backdropImg {
+		max-height: 90vh;
+		min-height: 70vh;
+		max-width: 70vw;
+		border-radius: 0.3125rem;
+	}
+}

@@ -1,0 +1,21 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	width: 100%;
+	padding: 1rem 0.875rem;
+	max-width: 31.25rem;
+	margin-bottom: 2.875rem;
+	border-radius: 0.625rem;
+	z-index: 0;
+	backdrop-filter: blur(3rem);
+	background: linear-gradient(
+		125deg,
+		$secondColorDark,
+		$secondColorDark20
+	);
+	border: solid 2px transparent;
+	backdrop-filter: blur(2.5rem);
+	box-shadow: -0.5rem 0.5rem 0.5rem 0.2rem 1px rgba(0, 0, 0, 0.5);
+	position: relative;
+	height: 100%;
+}
