@@ -12,6 +12,7 @@ export default function ImageText({
 	size,
 	type,
 	path,
+	hiddenRespon,
 }) {
 	return (
 		<Link to={path || '/'}>
@@ -32,7 +33,11 @@ export default function ImageText({
 						<Personicon />
 					</span>
 				)}
-				<div className={styles.column}>
+				<div
+					className={clsx(styles.column, {
+						[styles.textRes]: hiddenRespon,
+					})}
+				>
 					<span
 						className={styles[`text${size || 'medium'}`]}
 					>
@@ -43,7 +48,9 @@ export default function ImageText({
 							>{`${subText}`}</span>
 						)}
 					</span>
-					{date && <span className={styles.date}>{date}</span>}
+					{date && (
+						<span className={styles.date}>{date}</span>
+					)}
 				</div>
 			</div>
 		</Link>

@@ -15,10 +15,12 @@
 	&large {
 		font-size: 1.5rem;
 		font-weight: bold;
+		width: max-content;
 	}
 	&medium {
 		font-size: 1.125rem;
 		font-weight: bold;
+		width: max-content;
 	}
 }
 
@@ -30,7 +32,8 @@
 
 .container {
 	display: flex;
-    align-items: center;
+	align-items: center;
+	margin-right: 1rem;
 }
 
 .avatar {
@@ -45,4 +48,20 @@
 
 .date {
 	font-size: 0.75rem;
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+	.textRes {
+		display: none;
+	}
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.textRes {
+		display: none;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
 }

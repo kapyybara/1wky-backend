@@ -3,8 +3,9 @@
 .container {
 	width: 100%;
 	max-width: 31.25rem;
+	box-sizing: border-box;
 	padding: 1rem 0.875rem;
-	margin-bottom: 1.75rem;
+	margin-bottom: 1rem;
 	background-color: $secondColorDark;
 	z-index: 1;
 	border-radius: 0.675rem;
@@ -13,6 +14,8 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: flex-start;
+	border-bottom: solid 1px transparent;
+	border-left: solid 1px transparent;
 }
 
 .groupIcon {
@@ -78,4 +81,18 @@
 
 .o0 {
 	opacity: 0;
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.container {
+		border-radius: 0;
+		padding: 0.8rem 0.5rem;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
 }

@@ -81,10 +81,10 @@ export default function Info({ info, loading, own }) {
 									onClick={handleSettingClick}
 									className={styles.settingIcon}
 								>
-									<Setting />
+									<IconWrapper icon={<Setting />} />
 								</span>
 							) : (
-								<>
+								<span className={styles.groupIcon}>
 									<span
 										onClick={handleFollow}
 										className={styles.followIcon}
@@ -115,7 +115,7 @@ export default function Info({ info, loading, own }) {
 									) : (
 										<span></span>
 									)}
-								</>
+								</span>
 							)}
 						</span>
 						<div className={styles.subText}>

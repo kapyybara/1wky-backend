@@ -9,15 +9,15 @@
 	display: list-item;
 	align-items: center;
 	justify-content: center;
-	object-fit: cover;
 	z-index: 99;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	.backdropImg {
-		max-height: 90vh;
+		object-fit: contain;
+		max-height: 80vh;
 		min-height: 70vh;
-		max-width: 70vw;
+		max-width: 90vw;
 		border-radius: 0.3125rem;
 	}
 }

@@ -5,9 +5,6 @@ export default function NavList({ children }) {
 	return (
 		<ul className={styles.navlist}>
 			{children}
-			{/* {navigators.map(navigator => (
-				<NavItem  key={navigator.text} navigator={navigator} />
-			))} */}
 		</ul>
 	)
 }

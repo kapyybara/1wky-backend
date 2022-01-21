@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Divider, HorSlider } from 'components/UI'
+import { Divider, HorSlider, IconWrapper } from 'components/UI'
 import ChatItem from './ChatItem'
 import ChatContainer from './ChatContainer'
 import ChatInput from './ChatInput'
@@ -17,11 +17,13 @@ import { getOnlineUsers } from 'data/slices/userSlice'
 import defaultAvatar from 'assets/images/defaultAvatar.jpg'
 import socket from 'service/SocketContext'
 import ChatInfo from './ChatInfo'
-import { ReactComponent as Option } from 'assets/icons/threedot.svg'
+import { ReactComponent as Return } from 'assets/icons/return.svg'
+import clsx from 'clsx'
 
 export default function Chat({ mini }) {
 	const dispatch = useDispatch()
 	const scrollRef = useRef()
+	const [showMess, setShowMess] = useState(true)
 
 	const userId = localStorage.getItem('userId')
 	const { conversations, messages, loading, currentConversation } =
@@ -88,6 +90,14 @@ export default function Chat({ mini }) {
 	if (!mini) {
 		return (
 			<div className={styles.container}>
+				{!showMess && (
+					<span
+						className={styles.backButton}
+						onClick={() => setShowMess(prev => !prev)}
+					>
+						<IconWrapper icon={<Return />} />
+					</span>
+				)}
 				<div className={styles.left}>
 					{conversations?.length > 0 &&
 						conversations.map((conversation, index) => (
@@ -99,10 +109,17 @@ export default function Chat({ mini }) {
 									currentConversation._id ===
 									conversation._id
 								}
+								handleClickProp={() =>
+									setShowMess(prev => !prev)
+								}
 							/>
 						))}
 				</div>
-				<div className={styles.right}>
+				<div
+					className={clsx(styles.right, {
+						[styles.show]: !showMess,
+					})}
+				>
 					<ChatInfo />
 					<ChatContainer
 						labelImg={labelImg}

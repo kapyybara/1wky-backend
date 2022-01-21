@@ -4,8 +4,8 @@
 	width: 100%;
 	padding: 1rem 0.875rem;
 	max-width: 31.25rem;
-	margin-bottom: 2.875rem;
-	border-radius: 0.625rem;
+	margin-bottom: 1rem;
+	border-radius: 0.4rem;
 	z-index: 0;
 	backdrop-filter: blur(3rem);
 	background: linear-gradient(
@@ -13,9 +13,25 @@
 		$secondColorDark,
 		$secondColorDark20
 	);
-	border: solid 2px transparent;
+	border-bottom: solid 1px transparent;
+	border-left: solid 1px transparent;
 	backdrop-filter: blur(2.5rem);
-	box-shadow: -0.5rem 0.5rem 0.5rem 0.2rem 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0.5rem 0.5rem 0.5rem 0.2rem 1px rgba(0, 0, 0, 0.5);
 	position: relative;
 	height: 100%;
+	box-sizing: border-box;
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.container {
+		border-radius: 0;
+		padding: 0.8rem 0.5rem;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
 }

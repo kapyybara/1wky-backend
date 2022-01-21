@@ -24,14 +24,15 @@
 }
 
 .left {
-	max-width: 300px;
-	width: fill;
+	width: 30rem;
 	display: flex;
 	flex-direction: column;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	height: calc(100vh - 4.5rem);
+	margin-right: 1rem;
+	box-sizing: border-box;
 	overflow-y: scroll;
 	&::-webkit-scrollbar {
 		width: 0.2rem;
@@ -46,6 +47,52 @@
 }
 
 .right {
-	padding-left: 1rem;
 	width: fill;
+}
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.right {
+		background: #000;
+		transition: transform 0.2s ease;
+		position: absolute;
+		bottom: 0;
+		padding-bottom: 1rem;
+		right: 0;
+		transform: translate(100%, 0);
+		display: none;
+		z-index: 5rem;
+	}
+	.left {
+		width: 100%;
+		margin: 0;
+	}
+	.backButton {
+		display: block;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
+}
+
+.dn {
+	display: none;
+}
+
+.show {
+	transform: translate(0, 0);
+	display: block;
+}
+
+.backButton {
+	position: absolute;
+	top: 5rem;
+	left	: 1rem;
+	z-index: 10;
+	background: $mainColorDark;
+	border-radius: 50%;
+	box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.9), 1px -1px 2px rgba(124, 123, 123, 0.2);
+	// display: none;
 }

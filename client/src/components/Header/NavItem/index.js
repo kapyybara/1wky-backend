@@ -5,7 +5,7 @@ export default function NavItem({ path, icon, text }) {
 	const navigate = useNavigate()
 	return (
 		<li className={styles.navItem} onClick={() => navigate(path)}>
-			{icon && <span className={styles.navIcon}>{icon}</span>}
+			{icon && icon}
 			{text && <span className={styles.navText}>{text}</span>}
 		</li>
 	)

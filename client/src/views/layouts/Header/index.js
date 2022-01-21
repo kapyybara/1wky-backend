@@ -17,6 +17,7 @@ export default function Header({ type, navigators }) {
 				text="!wVy"
 				subText="the social media"
 				size="large"
+				hiddenRespon
 			/>
 			{type === 'large' && <SearchBar />}
 			<NavList>

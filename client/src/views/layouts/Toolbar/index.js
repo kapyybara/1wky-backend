@@ -29,7 +29,7 @@ export default function Toolbar() {
 	]
 	return (
 		<div className={styles.container}>
-			<Group label="Tools bar" right scrollable>
+			<Group right scrollable>
 				{tools.map(tool => (
 					<GroupItem svg key={tool.text} {...tool} pointer />
 				))}

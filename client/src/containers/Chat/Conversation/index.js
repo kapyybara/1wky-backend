@@ -21,6 +21,7 @@ export default function Conversation({
 	mini,
 	setLabelImg,
 	current,
+	handleClickProp,
 }) {
 	const navigative = useNavigate()
 	const dispatch = useDispatch()
@@ -32,6 +33,7 @@ export default function Conversation({
 		dispatch(setLoading(true))
 		dispatch(setConversation(conversation))
 		setLabelImg(user?.avatar)
+		handleClickProp && handleClickProp()
 	}
 
 	useEffect(() => {

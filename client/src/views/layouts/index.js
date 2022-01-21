@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux'
 
 import Header from './Header'
-import Footer from './Footer'
 import githubLogo from 'assets/images/githubLogo.png'
 import { ReactComponent as PersonIcon } from 'assets/icons/person.svg'
+import { ReactComponent as Chat } from 'assets/icons/chaticon.svg'
+import { ReactComponent as Home } from 'assets/icons/home.svg'
 import styles from './index.module.scss'
 import Sidebar from './Sidebar'
 import Toolbar from './Toolbar'
+import { IconWrapper } from 'components/UI'
 
 export default function Layout({ children, type, side }) {
 	const userInfo = useSelector(state => state.user.myInfo)
@@ -15,10 +17,12 @@ export default function Layout({ children, type, side }) {
 		{
 			path: '/',
 			text: 'Home',
+			icon: <IconWrapper icon={<Home />} />,
 		},
 		{
 			path: '/chat',
 			text: 'Chat',
+			icon: <IconWrapper icon={<Chat />} />,
 		},
 		{
 			//! thêm path sau khi có id
@@ -26,7 +30,9 @@ export default function Layout({ children, type, side }) {
 			text: userInfo.username || '',
 			icon:
 				userInfo.avatar !== '' ? (
-					<img src={userInfo.avatar} alt="" />
+					<IconWrapper
+						icon={<img src={userInfo.avatar} alt="" />}
+					/>
 				) : (
 					<PersonIcon />
 				),
