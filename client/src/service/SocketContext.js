@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 
 const SocketContext = createContext()
 
-const socket = io(process.env.REACT_APP_API_URL)
+const socket = io('/')
 
 const ContextProvider = ({ children }) => {
 	const userId = localStorage.getItem('userId')
