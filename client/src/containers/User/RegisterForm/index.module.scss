@@ -4,7 +4,8 @@
 	padding: 2.5rem 2.25rem;
 	background: $secondColorDark;
 	box-shadow: -0.625rem 0.625rem 0.625rem rgba(0, 0, 0, 0.25);
-	border-radius: 0.625rem;
+	border-radius: 0.4rem;
+	width: fit-content;
 	width: 100%;
 	max-width: 35rem;
 	backdrop-filter: blur(3px);
@@ -52,4 +53,34 @@
 	& > a {
 		font-weight: 700;
 	}
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.inputGroupHorizontal {
+		flex-direction: column;
+		& > div + div {
+			margin-left: 0rem;
+		}
+	}
+	.container {
+		width: 100vw;
+		box-sizing: border-box;
+		margin: 0 1rem;
+		background: transparent;
+		margin-top: 3rem;
+		box-shadow: none;
+	}
+	.signInWith {
+		& > button {
+			padding: 1rem 1.8rem;
+			width: auto;
+		}
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
 }

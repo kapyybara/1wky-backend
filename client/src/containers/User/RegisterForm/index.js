@@ -78,7 +78,6 @@ export default function RegisterForm() {
 			}
 			setIsLoading({ ...isLoading, register: true })
 			dispatch(register(body)).then(res => {
-			
 				if (res.payload.response?.data === 'duplicate') {
 					setIsLoading({ ...isLoading, register: false })
 					toast.error(
@@ -111,8 +110,7 @@ export default function RegisterForm() {
 				}
 			})
 		} catch (error) {
-			setIsLoading({ ...isLoading, register: false })
-			 (error)
+			setIsLoading({ ...isLoading, register: false })(error)
 		}
 	}
 

@@ -59,3 +59,22 @@
 	right: 1.5rem;
 	top: 3rem;
 }
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.input {
+		padding: 0.8rem 1rem;
+	}
+	.icon {
+		position: absolute;
+		right: 1rem;
+		top: 2.75rem;
+	}
+	.container {
+		box-sizing: border-box;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {}

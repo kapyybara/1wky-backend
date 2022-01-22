@@ -5,6 +5,7 @@ import githubLogo from 'assets/images/githubLogo.png'
 import { ReactComponent as PersonIcon } from 'assets/icons/person.svg'
 import { ReactComponent as Chat } from 'assets/icons/chaticon.svg'
 import { ReactComponent as Home } from 'assets/icons/home.svg'
+import { ReactComponent as About } from 'assets/icons/about.svg'
 import styles from './index.module.scss'
 import Sidebar from './Sidebar'
 import Toolbar from './Toolbar'
@@ -34,7 +35,7 @@ export default function Layout({ children, type, side }) {
 						icon={<img src={userInfo.avatar} alt="" />}
 					/>
 				) : (
-					<PersonIcon />
+					<IconWrapper icon={<PersonIcon />} />
 				),
 		},
 	]
@@ -43,11 +44,19 @@ export default function Layout({ children, type, side }) {
 		{
 			path: 'https://github.com/1wku',
 			text: 'My GitHub',
-			icon: <img src={githubLogo} alt="" />,
-		},
-		{
-			path: 'https://github.com/1wku',
-			text: 'About',
+			icon: (
+				<IconWrapper icon={<img src={githubLogo} alt="" />} />
+			),
+			icon: (
+				<IconWrapper icon={<img src={githubLogo} alt="" />} />
+				),
+			},
+			{
+				path: 'https://github.com/1wku',
+				text: 'About',
+				icon: (
+					<IconWrapper icon={<About />} />
+				),
 		},
 	]
 
