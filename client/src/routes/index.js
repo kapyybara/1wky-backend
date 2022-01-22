@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import SuspensePage from 'views/pages/SuspensePage'
 
 const Chat = lazy(() => import('../views/pages/Chat'))
 const Setting = lazy(() => import('../views/pages/Setting'))
@@ -17,7 +18,7 @@ const routes = [
 	{
 		path: '/',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<HomePage />
 			</Suspense>
 		),
@@ -25,7 +26,7 @@ const routes = [
 	{
 		path: '/login',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<LoginPage />
 			</Suspense>
 		),
@@ -33,7 +34,7 @@ const routes = [
 	{
 		path: '/register',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<RegisterPage />
 			</Suspense>
 		),
@@ -41,7 +42,7 @@ const routes = [
 	{
 		path: '/user/:id',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<PersonalPage />
 			</Suspense>
 		),
@@ -49,7 +50,7 @@ const routes = [
 	{
 		path: '/savedposts',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<SavedPosts />
 			</Suspense>
 		),
@@ -57,7 +58,7 @@ const routes = [
 	{
 		path: '/setting',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<Setting />
 			</Suspense>
 		),
@@ -65,7 +66,7 @@ const routes = [
 	{
 		path: '/changepass',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<ChangePass />
 			</Suspense>
 		),
@@ -73,7 +74,7 @@ const routes = [
 	{
 		path: '/chat',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<Chat />
 			</Suspense>
 		),
@@ -81,7 +82,7 @@ const routes = [
 	{
 		path: '/meetting/:id',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<Meetting />
 			</Suspense>
 		),
@@ -89,7 +90,7 @@ const routes = [
 	{
 		path: '/anwser/meetting',
 		main: (
-			<Suspense fallback={<h1>Loadding...</h1>}>
+			<Suspense fallback={<SuspensePage />}>
 				<MeettingAnswer />
 			</Suspense>
 		),
