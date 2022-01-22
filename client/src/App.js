@@ -9,6 +9,7 @@ import routes from './routes'
 import Backdrop from 'components/Backdrop'
 import { getMe } from 'data/slices/userSlice'
 import { getTimeLine, setLoading } from 'data/slices/postSlice'
+import Suspense from 'views/pages/Suspense'
 
 export default function App() {
 	const navigate = useNavigate()
@@ -101,7 +102,8 @@ export default function App() {
 	return (
 		<div>
 			<AnimatePresence>
-				<Routes>{RouteContainer(routes)}</Routes>
+				<Suspense />
+				{/* <Routes>{RouteContainer(routes)}</Routes> */}
 				<Backdrop key="backdrop" />
 			</AnimatePresence>
 		</div>

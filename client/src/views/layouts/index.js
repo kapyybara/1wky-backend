@@ -47,16 +47,11 @@ export default function Layout({ children, type, side }) {
 			icon: (
 				<IconWrapper icon={<img src={githubLogo} alt="" />} />
 			),
-			icon: (
-				<IconWrapper icon={<img src={githubLogo} alt="" />} />
-				),
-			},
-			{
-				path: 'https://github.com/1wku',
-				text: 'About',
-				icon: (
-					<IconWrapper icon={<About />} />
-				),
+		},
+		{
+			path: 'https://github.com/1wku',
+			text: 'About',
+			icon: <IconWrapper icon={<About />} />,
 		},
 	]
 
