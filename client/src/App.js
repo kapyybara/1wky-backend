@@ -102,8 +102,7 @@ export default function App() {
 	return (
 		<div>
 			<AnimatePresence>
-				<Suspense />
-				{/* <Routes>{RouteContainer(routes)}</Routes> */}
+				<Routes>{RouteContainer(routes)}</Routes>
 				<Backdrop key="backdrop" />
 			</AnimatePresence>
 		</div>
