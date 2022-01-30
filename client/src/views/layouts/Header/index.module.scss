@@ -1,0 +1,60 @@
+@import 'assets/styles/variable.scss';
+
+.heading {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 3.75rem;
+	z-index: 1000;
+	backdrop-filter: blur(3rem);
+	background: linear-gradient(
+		125deg,
+		$secondColorDark,
+		$secondColorDark20
+	);
+	position: relative;
+	background-color: transparent;
+	&::before {
+		z-index: -1;
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		filter: blur(4rem);
+		background: linear-gradient(
+			125deg,
+			$secondColorDark,
+			$secondColorDark20
+		);
+	}
+}
+
+.padding {
+	&large {
+		padding: 0 1.125rem;
+	}
+	&medium {
+		padding: 0 9.75rem;
+	}
+}
+// &large {
+// 	padding: 0 1.125rem;
+// }
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+	.paddingmedium {
+		padding: 0 1.125rem;
+	}
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.paddingmedium {
+		padding: 0 1.125rem;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
+}

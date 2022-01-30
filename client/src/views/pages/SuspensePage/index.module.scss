@@ -1,0 +1,16 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+    height: calc(100vh - 3.75rem);
+    width: 100vw;
+    background-color: $secondColorDark20;
+    opacity: 0.7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    &>svg {
+        width: 5rem;
+        height: 5rem;
+    }
+}
