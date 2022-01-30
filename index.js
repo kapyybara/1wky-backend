@@ -18,6 +18,8 @@ import conversationsRoute from './routes/conversations.js'
 import messagesRoute from './routes/messages.js'
 import searchRoute from './routes/search.js'
 
+import websocket from './webSocket/index.js'
+
 dotenv.config()
 
 const __dirname = path.resolve()
@@ -33,42 +35,39 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan('common'))
 app.use(
-	cors({
-		origin: true,
-		credentials: true,
-		origin: '*',
-		method: ['GET', 'POST'],
-	}),
+    cors({
+        origin: true,
+        credentials: true,
+        origin: '*',
+        method: ['GET', 'POST'],
+    }),
 )
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(
-	compression({
-		level: 6,
-		threshold: 100000,
-	}),
+    compression({
+        level: 6,
+        threshold: 100000,
+    }),
 )
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'))
-
-	app.get('	/', (req, res) => {
-		res.sendFile(
-			path.resolve(__dirname, 'client', 'build', 'index.html'),
-		)
-	})
+    app.use(express.static('client/build'))
+    app.get('/*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
 }
-
+console.log(process.env.MONGO_URL)
 //? connect to database
 mongoose
-	.connect(process.env.MONGO_URL, { useNewUrlParser: true })
-	.then(() =>
-		server.listen(PORT, () => {
-			console.log('Connected to MongoDB !')
-			console.log(`Back sever is running at PORT:${PORT} !!`)
-		}),
-	)
-	.catch(err => console.log(err))
+    .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+    .then(() =>
+        server.listen(PORT, () => {
+            console.log('Connected to MongoDB !')
+            console.log(`Back sever is running at PORT:${PORT} !!`)
+        }),
+    )
+    .catch((err) => console.log(err))
 
 //? use routes
 app.use('/api/users', userRoute)
@@ -78,61 +77,4 @@ app.use('/api/conversations', conversationsRoute)
 app.use('/api/messages', messagesRoute)
 app.use('/api/search', searchRoute)
 
-let users = []
-
-const addUser = (userId, socketId) => {
-	!users.some(user => user.userId === userId) &&
-		users.push({ userId, socketId })
-}
-
-const removeUser = socketId => {
-	users = users.filter(user => user.socketId !== socketId)
-}
-
-const getUser = userId => {
-	return users.find(user => user.userId === userId)
-}
-
-io.on('connection', socket => {
-	console.log('a user connected ' + socket.id)
-
-	socket.on('addUser', userId => {
-		addUser(userId, socket.id)
-		io.emit('getUsers', users)
-		io.emit('getMe', socket.id)
-	})
-
-	socket.on('disconnect', () => {
-		console.log('a user disconnected ' + socket.id)
-		removeUser(socket.id)
-		io.emit('getUsers', users)
-		socket.broadcast.emit('callEnded')
-	})
-
-	socket.on('sendMessage', ({ senderId, receiverId, message }) => {
-		const receiverUser = getUser(receiverId)
-		io.to(receiverUser?.socketId).emit('getMessage', {
-			senderId,
-			message,
-		})
-	})
-
-	socket.on('callUser', data => {
-		const res = {
-			signal: data.signalData,
-			from: data.from,
-		}
-		io.to(data.to).emit('callUser', res)
-	})
-
-	socket.on('answerCall', data => {
-		io.to(data.to).emit('callAccepted', {
-			signal: data.signal,
-		})
-	})
-
-	socket.on('leaveCall', data => {
-		console.log(data)
-		io.to(data.to).emit('leaveCall', data)
-	})
-})
+websocket(io)

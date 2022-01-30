@@ -13,11 +13,26 @@ export const newMessage = async (req, res) => {
 
 export const getMessages = async (req, res) => {
 	try {
-		const allMessages = await Message.find({
+		console.log(req.params, req.query)
+		let { page, limit } = req.query
+		let next = parseInt(page) + 1
+		if (parseInt(page) < 0) page = 1
+		const skip = (parseInt(page) - 1) * limit
+		const messages = await Message.find({
 			conversationId: req.params.id,
 		})
-		res.status(200).json(allMessages)
+			.sort({ createdAt: -1 })
+			.skip(skip)
+			.limit(parseInt(limit))
+
+		if (messages.length < limit) {
+			next = -1
+		}
+		console.log({ length: messages.length, next })
+
+		res.status(200).json({ messages: messages.reverse(), next })
 	} catch (error) {
+		console.log(error)
 		res.status(500).json(error)
 	}
 }

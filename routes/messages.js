@@ -5,6 +5,6 @@ const router = express.Router()
 
 router.post('/', newMessage)
 
-router.get('/:id', getMessages)
+router.get('/:id/', getMessages)
 
 export default router

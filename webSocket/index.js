@@ -12,8 +12,7 @@ const removeUser = socketId => {
 const getUser = userId => {
 	return users.find(user => user.userId === userId)
 }
-
-export const runIo = io => {
+export default io =>
 	io.on('connection', socket => {
 		console.log('a user connected ' + socket.id)
 
@@ -60,4 +59,3 @@ export const runIo = io => {
 			io.to(data.to).emit('leaveCall', data)
 		})
 	})
-}
