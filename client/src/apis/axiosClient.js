@@ -11,7 +11,7 @@ export default async function request(url, method, body, params) {
 
 	let objMeta = {
 		method,
-		url: `${baseURL}${url}${`/?${queryFormarted}` || ''}`,
+		url: `${url}${`/?${queryFormarted}` || ''}`,
 		headers,
 		data: body,
 	}
