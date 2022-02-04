@@ -35,41 +35,39 @@ app.use(express.json())
 app.use(helmet())
 app.use(morgan('common'))
 app.use(
-	cors({
-		origin: true,
-		credentials: true,
-		origin: '*',
-		method: ['GET', 'POST'],
-	}),
+    cors({
+        origin: true,
+        credentials: true,
+        origin: '*',
+        method: ['GET', 'POST'],
+    }),
 )
 app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(
-	compression({
-		level: 6,
-		threshold: 100000,
-	}),
+    compression({
+        level: 6,
+        threshold: 100000,
+    }),
 )
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'))
-	app.get('*', (req, res) => {
-		res.sendFile(
-			path.resolve(__dirname, 'client', 'build', 'index.html'),
-		)
-	})
+    app.use(express.static('client/build'))
+    app.get('/', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
 }
 
 //? connect to database
 mongoose
-	.connect(process.env.MONGO_URL, { useNewUrlParser: true })
-	.then(() =>
-		server.listen(PORT, () => {
-			console.log('Connected to MongoDB !')
-			console.log(`Back sever is running at PORT:${PORT} !!`)
-		}),
-	)
-	.catch(err => console.log(err))
+    .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+    .then(() =>
+        server.listen(PORT, () => {
+            console.log('Connected to MongoDB !')
+            console.log(`Back sever is running at PORT:${PORT} !!`)
+        }),
+    )
+    .catch((err) => console.log(err))
 
 //? use routes
 app.use('/api/users', userRoute)
