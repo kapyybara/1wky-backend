@@ -1,0 +1,32 @@
+@import "assets/styles/variable.scss";
+
+
+.navItem {
+	display: flex;
+	align-items: center;
+	justify-content:flex-start;
+    transition: filter .2s ease;
+    &:hover {
+        filter: brightness(1.5);    
+    }
+    cursor: pointer;
+}
+
+.navText {
+    margin-left: 0.6rem;
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .navText {
+        display: none;
+    }
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+    .navText {
+        display: none;
+    }
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {}

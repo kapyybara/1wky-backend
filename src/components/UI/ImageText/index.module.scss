@@ -1,0 +1,67 @@
+.image {
+	&large {
+		width: 2.5rem;
+		height: 2.5rem;
+		object-fit: cover;
+	}
+	&medium {
+		width: 2.5rem;
+		height: 2.5rem;
+		object-fit: cover;
+	}
+}
+
+.text {
+	&large {
+		font-size: 1.5rem;
+		font-weight: bold;
+		width: max-content;
+	}
+	&medium {
+		font-size: 1.125rem;
+		font-weight: bold;
+		width: max-content;
+	}
+}
+
+.subText {
+	font-size: 0.875rem;
+	font-weight: normal;
+	margin-left: 0.5rem;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	margin-right: 1rem;
+}
+
+.avatar {
+	border-radius: 100%;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	margin-left: 0.5rem;
+}
+
+.date {
+	font-size: 0.75rem;
+}
+
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+	.textRes {
+		display: none;
+	}
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	.textRes {
+		display: none;
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {
+}

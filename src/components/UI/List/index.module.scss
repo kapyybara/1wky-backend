@@ -1,0 +1,63 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	display: flex;
+	flex-direction: column;
+	// max-width: 400px;
+	max-height: 12.5rem;
+	padding: 0.4rem 0.2rem;
+	margin: 0;
+	background: $mainColorDark;
+	border: 1px solid $secondColorDark;
+	border-radius: 0.5rem;
+	box-shadow: -4px 5px 5px 1px #00000040;
+	& > li {
+		padding-right: 0.8rem;
+	}
+	& > li + li {
+		margin-top: 0.2rem;
+	}
+}
+
+.item {
+	padding: 0.375rem;
+	box-shadow: -3px 4px 4px 0px #00000040;
+	background-color: $mainColorDark;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	border-radius: 4.375rem;
+	width: 100%;
+	transition: all 0.05s ease;
+	box-sizing: border-box;
+	&:hover {
+		box-shadow: -4px 5px 5px 1px #00000040;
+		transform: scale(1.008);
+	}
+	&:active {
+		box-shadow: -3px 4px 4px 0px #00000040;
+		transform: scale(1);
+	}
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.icon {
+	height: 1rem;
+	width: 1;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.iconSvg > svg {
+	height: 1rem;
+	width: 1rem;
+}
+
+.text {
+	margin-left: 0.8rem;
+	font-weight: 400;
+	font-size: 0.75rem;
+}

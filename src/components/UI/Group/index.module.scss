@@ -1,0 +1,47 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	padding: 1rem 0.75rem 0 0.75rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: calc(100% - 1.5rem);
+}
+
+.group {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	& > * + * {
+		margin-top: 1rem;
+	}
+}
+
+.start {
+	align-items: flex-start;
+}
+
+.end {
+	align-items: end;
+}
+
+.fullWidth {
+	width: 100%;
+}
+
+.right {
+	align-self: flex-end;
+}
+
+.label {
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+.seemore {
+	font-size: 0.75rem;
+	font-weight: 300;
+	cursor: pointer;
+	text-align: right;
+	width: 100%;
+}

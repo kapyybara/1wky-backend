@@ -1,0 +1,42 @@
+@import 'assets/styles/variable.scss';
+
+.container {
+	min-width: 15.625rem;
+	height: calc(100vh - 3.85rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	overflow-y: scroll;
+	backdrop-filter: blur(3rem);
+	background: linear-gradient(
+		125deg,
+		$secondColorDark,
+		$secondColorDark20
+	);
+	&::-webkit-scrollbar {
+		width: 0.2rem;
+	}
+	&::-webkit-scrollbar-track {
+		background: $secondColorDark;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: $textColor20;
+		border-radius: 100rem;
+	}
+}
+//Tablet: width >= 740px and width < 1024px.
+@media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+	.container {
+		display: none;	
+	}
+}
+//Mobile: width < 740px.
+@media only screen and (max-width: 46.1875em) {
+	
+	.container {
+		display: none;	
+	}
+}
+//PC: width >= 1024.
+@media only screen and (min-width: 64em) {}

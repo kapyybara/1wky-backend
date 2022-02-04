@@ -1,0 +1,63 @@
+.container {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.userVideo {
+	position: absolute;
+	z-index: 4;
+	object-fit: cover;
+	border-radius: 0.625rem;
+	transition: all 0.5s ease;
+	&_1 {
+		width: 90%;
+		height: 90%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	&_2 {
+		width: 45%;
+		height: 90%;
+		top: 50%;
+		left: 25%;
+		transform: translate(-50%, -50%);
+	}
+	&_3 {
+		width: 90%;
+		height: 45%;
+		top: 75%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+.myVideo {
+	position: absolute;
+	z-index: 5;
+	object-fit: cover;
+	border-radius: 0.625rem;
+	transition: all 0.4s ease;
+	&_1 {
+		width: 18.75rem;
+		height: 12.5rem;
+		bottom: 1rem;
+		right: 1rem;
+	}
+	&_2 {
+		width: 45%;
+		height: 90%;
+		top: 50%;
+		left: 75%;
+		transform: translate(-50%, -50%);
+	}
+	&_3 {
+		width: 90%;
+		height: 45%;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
