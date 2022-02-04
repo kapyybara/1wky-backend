@@ -28,7 +28,7 @@ const app = express()
 const PORT = process.env.PORT || 3009
 
 const server = createServer(app)
-const io = new Server(server)
+const io = new Server(server, { log: false, origins: '*:*' })
 
 //? middleware
 app.use(express.json())
@@ -36,8 +36,6 @@ app.use(helmet())
 app.use(morgan('common'))
 app.use(
     cors({
-        origin: true,
-        credentials: true,
         origin: '*',
         method: ['GET', 'POST'],
     }),
@@ -50,6 +48,16 @@ app.use(
         threshold: 100000,
     }),
 )
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*')
+    res.header('Access-Control-Allow-Headers', 'X-Requested-With')
+    res.header('Access-Control-Allow-Headers', 'Content-Type')
+    res.header(
+        'Access-Control-Allow-Methods',
+        'PUT, GET, POST, DELETE, OPTIONS',
+    )
+    next()
+})
 
 if (process.env.NODE_ENV === 'production') {
     //    app.use(express.static('client/build'))
