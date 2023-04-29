@@ -80,3 +80,22 @@ export const followUser = async (req, res) => {
 		res.status(403).json("you can't follow yourself")
 	}
 }
+
+
+export const checkIsFollowUser = async (req, res) => {
+	if (req.body.userId !== req.params.id) {
+		try {
+			const user = await User.findById(req.params.id)
+			const currentUser = await User.findById(req.body.userId)
+			if (!user.followers.includes(req.body.userId)) {
+				return res.status(200).json('NO')
+			} else {
+				return res.status(200).json('YES')
+			}
+		} catch (erroror) {
+			res.status(500).json({ error })
+		}
+	} else {
+		res.status(403).json("you can't follow yourself")
+	}
+}

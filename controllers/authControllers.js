@@ -32,6 +32,7 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
 	try {
+		console.log(res.body)
 		const user = await User.findOne({ email: req.body.email })
 
 		if (!user) return res.status(401).send('User not found')
@@ -45,6 +46,7 @@ export const login = async (req, res) => {
 		}
 		return res.status(200).json({ data: user })
 	} catch (error) {
+		console.log(error)
 		return res.status(500).json({ error })
 	}
 }
