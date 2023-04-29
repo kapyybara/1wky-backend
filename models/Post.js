@@ -18,6 +18,10 @@ const PostSchema = new mongoose.Schema(
             type: Array,
             default: [],
         },
+		ownerData:{
+			type : Object , 
+			required:false
+		}
 	},
 	{ timestamps: true },
 )

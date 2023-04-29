@@ -63,7 +63,7 @@ export const followUser = async (req, res) => {
 				await currentUser.updateOne({
 					$push: { followings: req.params.id },
 				})
-				return res.status(200).json('user have been followed')
+				return res.status(200).json('user have been unfollowed')
 			} else {
 				await user.updateOne({
 					$pull: { followers: req.body.userId },
@@ -71,7 +71,7 @@ export const followUser = async (req, res) => {
 				await currentUser.updateOne({
 					$pull: { followings: req.params.id },
 				})
-				return res.status(200).json('user have been unfollowed')
+				return res.status(200).json('user have been follow')
 			}
 		} catch (erroror) {
 			res.status(500).json({ error })
@@ -86,8 +86,7 @@ export const checkIsFollowUser = async (req, res) => {
 	if (req.body.userId !== req.params.id) {
 		try {
 			const user = await User.findById(req.params.id)
-			const currentUser = await User.findById(req.body.userId)
-			if (!user.followers.includes(req.body.userId)) {
+			if (user.followers.includes(req.body.userId)) {
 				return res.status(200).json('NO')
 			} else {
 				return res.status(200).json('YES')
