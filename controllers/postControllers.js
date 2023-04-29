@@ -72,7 +72,10 @@ export const likePost = async (req, res) => {
 export const getPost = async (req, res) => {
 	try {
 		const post = await Post.findById(req.params.id)
-		res.status(200).json({ data: post })
+		const user = await User.findById(post.userId)
+		
+		post.ownerData = user; 
+		res.status(200).json({ data: post  })
 	} catch (error) {
 		res.status(500).json({ error })
 	}
@@ -95,6 +98,12 @@ export const getTimeline = async (req, res) => {
 			.limit(parseInt(limit))
 
 		if (timeline.length === 0) next = -1
+
+		await Promise.all(timeline.map(async (post)=>{
+			console.log(post.id)
+			const user = await User.findById(post.userId)
+			post.ownerData = user; 
+		}))
 		res.status(200).json({ timeline, next })
 	} catch (error) {
 		res.status(500).json({ error })
@@ -104,7 +113,12 @@ export const getTimeline = async (req, res) => {
 export const getPostsByUserId = async (req, res) => {
 	try {
 		const userId = req.params.id
-		const posts = await Post.find({userId: userId}).limit(10)
+		const posts = await Post.find({userId: userId})
+		await Promise.all(posts.map(async (post)=>{
+			console.log(post.id)
+			const user = await User.findById(post.userId)
+			post.ownerData = user; 
+		}))
 		res.status(200).json({ data:posts })
 
 	} catch (error) {

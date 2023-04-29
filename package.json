@@ -5,7 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "nodemon index.js",
+        "start": "nodemon index.js --host",
         "socket": "nodemon ./socket/index.js",
         "server": "nodemon index.js",
         "dev": "concurrently \"yarn run server\" \"yarn run socket\""
