@@ -100,7 +100,6 @@ export const getTimeline = async (req, res) => {
 		if (timeline.length === 0) next = -1
 
 		await Promise.all(timeline.map(async (post)=>{
-			console.log(post.id)
 			const user = await User.findById(post.userId)
 			post.ownerData = user; 
 		}))
@@ -115,7 +114,6 @@ export const getPostsByUserId = async (req, res) => {
 		const userId = req.params.id
 		const posts = await Post.find({userId: userId})
 		await Promise.all(posts.map(async (post)=>{
-			console.log(post.id)
 			const user = await User.findById(post.userId)
 			post.ownerData = user; 
 		}))

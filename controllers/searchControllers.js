@@ -3,7 +3,6 @@ import User from '../models/User.js'
 export const searchUser = async (req, res) => {
 	try {
 		const reg = new RegExp(req.query.username, 'i')
-        console.log()
 		const users = await User.find({ username: reg })
 		res.status(200).json(users)
 	} catch (error) {
