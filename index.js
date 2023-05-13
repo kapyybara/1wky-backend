@@ -17,6 +17,7 @@ import postsRoute from './routes/posts.js'
 import conversationsRoute from './routes/conversations.js'
 import messagesRoute from './routes/messages.js'
 import searchRoute from './routes/search.js'
+import commentRoute from './routes/comment.js'
 
 import websocket from './webSocket/index.js'
 
@@ -75,5 +76,6 @@ app.use('/api/posts', postsRoute)
 app.use('/api/conversations', conversationsRoute)
 app.use('/api/messages', messagesRoute)
 app.use('/api/search', searchRoute)
+app.use('/api/comment', commentRoute)
 
 websocket(io)
