@@ -76,6 +76,6 @@ app.use('/api/posts', postsRoute)
 app.use('/api/conversations', conversationsRoute)
 app.use('/api/messages', messagesRoute)
 app.use('/api/search', searchRoute)
-app.use('/api/comment', commentRoute)
+app.use('/api/comments', commentRoute)
 
 websocket(io)
