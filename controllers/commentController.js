@@ -28,7 +28,7 @@ export const getComment = async (req, res) => {
 	try {
 		const { postId, parentId } = req.query
 		if (postId) {
-			let comments = await Comment.find({ postId: postId })
+			let comments = await Comment.find({ postId: postId })	.sort({ createdAt: 'descending' });
 
 			comments = await Promise.all(comments.map(async (comment)=>{
 				const user = (await User.findById(comment.createBy))
