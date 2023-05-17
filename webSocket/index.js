@@ -29,11 +29,23 @@ export default (io) =>
             socket.broadcast.emit('callEnded')
         })
 
+        
+
         socket.on('sendMessage', ({ senderId, receiverId, message }) => {
             const receiverUser = getUser(receiverId)
-            io.to(receiverUser?.socketId).emit('getMessage', {
-                senderId,
-                message,
+            console.log({ senderId, receiverId, message })
+            console.log("Đã send")
+            
+            console.log(receiverUser?.socketId)
+            // io.to(receiverUser?.socketId).emit('getMessage', {
+            //     senderId,
+            //     message,
+            // })
+
+            io.emit('getMessage', {
+                receiverId : receiverId,
+                senderId : senderId,
+                message: message,
             })
         })
 

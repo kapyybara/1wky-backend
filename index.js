@@ -60,7 +60,9 @@ if (process.env.NODE_ENV === 'production') {
 
 //? connect to database
 mongoose
-    .connect(process.env.MONGO_URL, { useNewUrlParser: true })
+    .connect(process.env.MONGO_URL, {
+        useNewUrlParser: true,
+      })
     .then(() =>
         server.listen(PORT, () => {
             console.log('Connected to MongoDB !')
