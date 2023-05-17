@@ -28,12 +28,12 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
 	try {
 		const post = await Post.findById(req.params.id)
-		if (post.userId === req.body.userId) {
+		// if (post.userId === req.body.userId) {
 			await post.deleteOne({ _id: req.params.id })
 			res.status(200).json('The post have been deleted')
-		} else {
-			res.status(403).json('You can delete only your post!')
-		}
+		// } else {
+		// 	res.status(403).json('You can delete only your post!')
+		// }
 	} catch (error) {
 		res.status(500).json({ error })
 	}

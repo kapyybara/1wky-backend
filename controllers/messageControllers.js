@@ -11,7 +11,7 @@ export const newMessage = async (req, res) => {
 	}
 }
 
-export const getMessages = async (req, res) => {
+export const  getMessages = async (req, res) => {
 	try {
 		console.log(req.params, req.query)
 		let { page, limit } = req.query
@@ -33,6 +33,17 @@ export const getMessages = async (req, res) => {
 		res.status(200).json({ messages: messages.reverse(), next })
 	} catch (error) {
 		console.log(error)
+		res.status(500).json(error)
+	}
+}
+
+
+export const deleteAllMessage = async (req, res) => {
+	try {
+		const messages = await Message.deleteMany()
+		res.status(200).json("Xoas thanh cong ")
+
+	} catch (error) {
 		res.status(500).json(error)
 	}
 }
